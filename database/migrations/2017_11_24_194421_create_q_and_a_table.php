@@ -13,15 +13,15 @@ class CreateQAndATable extends Migration
      */
     public function up()
     {
-        Schema::create('qAndA', function (Blueprint $table) {
+        Schema::create('q_and_a', function (Blueprint $table) {
             $table->increments('id');
             $table->longText('question');
-            $table->text('answerA');
-            $table->text('answerB');
-            $table->text('answerC');
-            $table->text('answerD');
-            $table->text('answerE');
-            $table->int('correctAnswer');
+            $table->text('answer_a');
+            $table->text('answer_b');
+            $table->text('answer_c');
+            $table->text('answer_d');
+            $table->text('answer_e');
+            $table->integer('correct_answer');
             $table->timestamps();
         });
     }

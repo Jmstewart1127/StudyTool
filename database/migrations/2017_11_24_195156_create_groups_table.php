@@ -15,13 +15,13 @@ class CreateGroupsTable extends Migration
     {
         Schema::create('groups', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->integer('created_by');
+            $table->string('group_name');
             $table->string('subject');
             $table->boolean('private');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

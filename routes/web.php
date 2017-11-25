@@ -15,6 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => 'web'], function () {
+
+    Auth::routes();
+
+    Route::resource('groups', 'GroupsController');
+
+    Route::get('groups/open', 'GroupsController@showOpenGroups');
+
+});

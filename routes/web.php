@@ -23,6 +23,8 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::resource('groups', 'GroupsController');
 
-    Route::get('groups/open', 'GroupsController@showOpenGroups');
+    Route::get('groups/show/open', 'GroupsController@showOpenGroups');
+
+    Route::get('groups/show/{id}', 'GroupsController@showGroupById');
 
 });

@@ -79,9 +79,21 @@ class GroupsController extends Controller
         return view('groups.show', compact('groups'));
     }
 
+    /*
+    *   Shows open groups joinable by anyone
+    */ 
     public function showOpenGroups() 
     {
-        return view('groups.show', compact('groups'));
+        $groups = DB::table('groups')->where('private', '=', 0)->get();
+
+        return view('groups.show', compact('groups', $groups));
+    }
+
+    public function showGroupById($id) 
+    {
+        $groups = DB::table('groups')->where('id', '=', $id)->get();
+
+        return view('groups.showgrouppage', compact('groups', $groups));
     }
 
     /**
